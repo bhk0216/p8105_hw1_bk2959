@@ -5,3 +5,29 @@ date: "2024-09-13"
 output: github_document
 ---
 
+## Problem 1
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+The `penguins` dataset contains `nrow(penguins)` rows and `ncol(penguins)` columns. 
+It provides detailed information about three different `species` of penguins (Adelie, Chinstrap, and Gentoo) and their respective `island` (Biscoe, Dream, and Torgersen). 
+The dataset includes important biometric measurements for each penguin, such as:
+
+* Bill length: `bill_length_mm`
+* Bill depth: `bill_depth_mm`
+* Flipper length: `flipper_length_mm`
+* Body mass: `body_mass_g`
+
+The mean flipper length is `mean(penguins$flipper_length_mm)`.
+
+```{r}
+library(tidyverse)
+
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+
+ggsave("penguins_scatter_plot.pdf")
+```
+
+## Problem 2
+
