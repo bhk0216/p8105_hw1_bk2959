@@ -1,0 +1,7 @@
+---
+title: "p8105_hw1_bk2959"
+author: "Stella Koo"
+date: "2024-09-13"
+output: github_document
+---
+
