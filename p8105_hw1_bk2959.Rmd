@@ -8,9 +8,11 @@ output: github_document
 ## Problem 1
 ```{r}
 data("penguins", package = "palmerpenguins")
+
+library(tidyverse)
 ```
 
-The `penguins` dataset contains `nrow(penguins)` rows and `ncol(penguins)` columns. 
+The `penguins` dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns. 
 It provides detailed information about three different `species` of penguins (Adelie, Chinstrap, and Gentoo) and their respective `island` (Biscoe, Dream, and Torgersen). 
 The dataset includes important biometric measurements for each penguin, such as:
 
@@ -19,11 +21,9 @@ The dataset includes important biometric measurements for each penguin, such as:
 * Flipper length: `flipper_length_mm`
 * Body mass: `body_mass_g`
 
-The mean flipper length is `mean(penguins$flipper_length_mm)`.
+The mean flipper length is `r mean(pull(penguins, "flipper_length_mm"), na.rm = TRUE)`.
 
 ```{r}
-library(tidyverse)
-
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 
 ggsave("penguins_scatter_plot.pdf")
